@@ -6,10 +6,7 @@
   "scripts": {
     "build": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wandouni/my-webpack-chain.git"
-  },
+  "repository": "git+https://github.com/wandouni/my-webpack-chain.git",
   "author": "2539419557@qq.com",
   "license": "ISC",
   "bugs": {
@@ -17,14 +14,20 @@
   },
   "homepage": "https://github.com/wandouni/my-webpack-chain#readme",
   "dependencies": {
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "less": "^3.8.0",
     "less-loader": "^4.1.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0"
-  }
+  },
+  "main": "index.js"
 }
