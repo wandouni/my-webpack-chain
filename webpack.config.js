@@ -5,7 +5,7 @@ const config = {
         app: './src/index.js'
     },
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle.[name].[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -20,4 +20,4 @@ const config = {
         ]
     }
 }
-module.export = config
+module.exports = config
