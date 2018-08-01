@@ -1,3 +1,3 @@
 export default function printMe() {
-    console.log('console from   printMe')
+    consoleddsads.error('error from printMe!')
 }
