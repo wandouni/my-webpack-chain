@@ -1,11 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 const config = {
     entry: {
         app: './src/index.js',
-        print: './src/print.js'
+        // print1: './src/print.js'
     },
     output: {
         filename: '[name].bundle.js',
@@ -15,7 +16,8 @@ const config = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         port: 8088,
-        compress: true
+        compress: true,
+        hot: true
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -23,7 +25,9 @@ const config = {
             filename: 'index.html',
             template: 'index.html',
             inject: true
-        })
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
@@ -43,6 +47,7 @@ const config = {
                 use: ['file-loader']
             }
         ]
-    }
+    },
+    mode: 'production'
 }
 module.exports = config
