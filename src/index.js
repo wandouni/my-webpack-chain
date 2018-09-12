@@ -1,31 +1,15 @@
-// import _ from 'lodash'
-// import './style/style.less'
-// import printMe from './print'
-import { cube } from './math.js'
+import 'babel-polyfill'
+import React, { Component } from 'react';
+import reactDom from 'react-dom'
 
-function component() {
-    // var element = document.createElement('div')
-    // var btn = document.createElement('button')
-    // element.innerHTML = _.join(['hello', 'webpack'], '')
-    // element.classList.add('hello')
-    // btn.innerHTML = 'Click me and check the console'
-    // btn.onclick = printMe
-    // element.appendChild(btn)
-    var element = document.createElement('pre');
-    element.innerHTML = [
-        'Hello webpack!',
-        '5 cubed is equal to ' + cube(5)
-    ].join('\n\n');
-    return element
+class App extends Component {
+    render() {
+        return (
+            <div>
+                this is a App test!
+            </div>
+        );
+    }
 }
-let element = component()
-document.getElementById('app').appendChild(element)
-// if (module.hot) {
-//     module.hot.accept('./print.js', function () {
-//         console.log('Accepting the updated printMe module!')
-//         // printMe()
-//         document.body.removeChild(element)
-//         element = component()
-//         document.body.appendChild(element)
-//     })
-// }
+
+reactDom.render(<App />, document.getElementById('app'))
