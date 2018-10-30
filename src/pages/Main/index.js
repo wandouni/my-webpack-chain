@@ -3,11 +3,12 @@
  * @Author: wandou 
  * @Date: 2018-09-21 09:30:15 
  * @Last Modified by: wandou
- * @Last Modified time: 2018-09-21 14:55:20
+ * @Last Modified time: 2018-10-30 15:33:42
  */
 import { Icon, Menu } from 'antd';
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import './Main.less'
 
 class index extends Component {
   state = {
@@ -21,8 +22,9 @@ class index extends Component {
     });
   }
   render() {
+    console.lo('test')
     return (
-      <div>
+      <div className='-p-Main'>
         <Menu
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}

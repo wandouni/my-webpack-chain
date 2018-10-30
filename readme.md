@@ -1,3 +1,11 @@
+# Usage
+
+```
+npm i
+npm run dev
+npm run build
+```
+
 # babel如何配置？
 最好是查看babel英文官网查看最新配置，中文翻译的文档有不同步的情况，以至于在6.x和7.x之间混乱了很久。
 
@@ -85,3 +93,20 @@ npm install babel-plugin-import --save-dev
 }]]
 ```
 至此，antd样式正确显示出来，可以正常使用。
+至此，已实现
+
+```
+支持less
+开启source-map
+使用webpack-dev-server, 实现了实时重新加载（live reload）
+HMR
+Babel编译
+dev和pro分开打包
+```
+
+# babel的几个文件的作用，如何搭配使用？编译出来的代码浏览器支持？自己编写库的话，如何编译？如何发布？
+# 请求代理如何实现？
+# 如何规划npm run build生成的文件目录？
+
+
+
