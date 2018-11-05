@@ -6,6 +6,20 @@ npm run dev
 npm run build
 ```
 
+# 常用loader的作用
+## file-loader
+将文件发送到输出文件夹
+## url-loader
+以`base64`的形式加载文件，可加载图片，音频，字体文件。
+## style-loader
+通过`style`标签将`css`注入`html`
+## css-loader
+`css-loader` 解释(interpret) `@import` 和 `url()` ，会 `import/require()` 后再`解析`(resolve)它们
+##  less-loader
+编译`less`至`css`
+##  babel-loader
+告诉webapck,js文件需要经过babel编译
+
 # babel如何配置？
 最好是查看babel英文官网查看最新配置，中文翻译的文档有不同步的情况，以至于在6.x和7.x之间混乱了很久。
 
@@ -96,7 +110,7 @@ npm install babel-plugin-import --save-dev
 至此，已实现
 
 ```
-支持less
+支持less编写
 开启source-map
 使用webpack-dev-server, 实现了实时重新加载（live reload）
 HMR
@@ -105,8 +119,16 @@ dev和pro分开打包
 ```
 
 # babel的几个文件的作用，如何搭配使用？编译出来的代码浏览器支持？自己编写库的话，如何编译？如何发布？
+
 # 请求代理如何实现？
+```
+devServer->proxy
+```
+
 # 如何规划npm run build生成的文件目录？
+- 通过`file-loader`可以配置图片，媒体资源，字体文件的输出路径和名称
+- 可以通过`output`的`filename`，配置js输出文件夹
+- `html`文件默认输出到dist下根目录
 
 
 

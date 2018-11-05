@@ -2,12 +2,21 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+let fileLoader = (path) => {
+  return {
+    loader: 'file-loader',
+    options: {
+      name: `${path}/[name].[hash].[ext]`
+    }
+  }
+}
+
 module.exports = {
   entry: {
     app: './src/index.js',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: 'js/[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
@@ -23,16 +32,17 @@ module.exports = {
         test: /\.less$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader' },
+          { loader: 'css-loader', options: {} },
           { loader: 'less-loader', options: { javascriptEnabled: true } },
         ]
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+          }]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -42,7 +52,8 @@ module.exports = {
             options: {
               limit: 10000
             }
-          }
+          },
+          fileLoader('static/images')
         ]
       },
       {
@@ -53,7 +64,8 @@ module.exports = {
             options: {
               limits: 10000
             }
-          }
+          },
+          fileLoader('static/videos')
         ]
       },
 
@@ -64,7 +76,7 @@ module.exports = {
           options: {
             limits: 10000
           }
-        }]
+        }, fileLoader('static/fonts')]
       }
     ]
   },

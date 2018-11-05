@@ -8,7 +8,11 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist',
     port: '3001',
-    hot: true
+    hot: true,
+    proxy: {
+      context: ['/auth', '/api'],
+      target: 'http://localhost:3000',
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
