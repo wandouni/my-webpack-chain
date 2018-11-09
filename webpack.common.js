@@ -1,6 +1,8 @@
-const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const webpack = require('webpack')
 
 let fileLoader = (path) => {
   return {
@@ -21,10 +23,17 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin([
+      {
+        from: __dirname + '/static',
+        to: __dirname + '/dist',
+      }
+    ]),
     new HtmlWebpackPlugin({
       title: 'this is Production index',
       template: './index.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
@@ -53,7 +62,7 @@ module.exports = {
               limit: 10000
             }
           },
-          fileLoader('static/images')
+          // fileLoader('static/images')
         ]
       },
       {
@@ -65,7 +74,7 @@ module.exports = {
               limits: 10000
             }
           },
-          fileLoader('static/videos')
+          // fileLoader('static/videos')
         ]
       },
 
@@ -76,7 +85,9 @@ module.exports = {
           options: {
             limits: 10000
           }
-        }, fileLoader('static/fonts')]
+        },
+          // fileLoader('static/fonts')
+        ]
       }
     ]
   },
@@ -85,4 +96,4 @@ module.exports = {
       chunks: 'all'
     }
   }
-};
+}
